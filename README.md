@@ -29,12 +29,22 @@ We Used a Python Script (solve.py) to Do It All
 This script does 2 things:
 1.	Sends the card with the special CSS to the website.
 2.	Runs a small server that listens for leaked characters (like A, b, 3, etc.)
+
+![image](https://github.com/user-attachments/assets/c8c1d92d-c73a-40e3-9a53-50d59904a76c)
+
+![image](https://github.com/user-attachments/assets/b019bd29-f022-41dc-bfe1-b219f6f9f283)
+
+
 As the admin views the page:
 •	Their browser loads fonts.
 •	Our server sees which characters got loaded.
 •	We slowly rebuild the secret code, one letter at a time.
 
-![image](https://github.com/user-attachments/assets/c8c1d92d-c73a-40e3-9a53-50d59904a76c)
+![image](https://github.com/user-attachments/assets/16790c8c-e879-41e8-99dc-6105e4dbb4fe)
+
+![image](https://github.com/user-attachments/assets/0ed8d4f9-efda-4641-b93d-5a243bf71deb)
+
+![image](https://github.com/user-attachments/assets/a9a5aed3-9901-404a-aeef-622429ebb9ff)
 
 
 Now We Have the Secret Code (approvalToken)
@@ -56,9 +66,16 @@ Like:
 http://127.0.0.1:1337/approve/1/the_token
 This makes the admin automatically approve our card
 
+So after submission got approved we will be getting the submission view page with comments which is visible to admin so now we got that page 
+
+![image](https://github.com/user-attachments/assets/95691caf-f2a3-4e7f-ae48-4e3c454415d1)
 
 
-Important Trick: The admin’s browser is running locally — we can’t access 127.0.0.1, but the admin can. So we force them to access it via CSS!
+Next step is we get the admin acces so now we are doing sql injection using splmap tool by saving  a text file 
+
+![image](https://github.com/user-attachments/assets/bc82c6f7-1c66-4eb1-81af-c5b260666083)
+
+
 1.	sqlmap reads the req_entries.txt file.
 2.	It finds the pagination parameter (which is user-controlled).
 3.	It sends payloads like:
@@ -71,3 +88,24 @@ o	Dump data (like the flag!)
 o	Even run SQL commands directly
 In this challenge, pagination was passed unsanitized into a SQL query, so sqlmap could inject easily!
 
+![image](https://github.com/user-attachments/assets/2c2c7f06-e9f5-449e-8c43-77f0d35f5756)
+
+
+
+![image](https://github.com/user-attachments/assets/16108932-8fa2-4664-846e-7a7ebc34a7a8)
+
+
+![image](https://github.com/user-attachments/assets/dfe311fc-f599-404c-829f-faaff3df3043)
+
+
+
+![image](https://github.com/user-attachments/assets/fb073388-d98a-4730-9148-c7d060631149)
+
+
+Now dump the flag table
+
+
+![image](https://github.com/user-attachments/assets/c7235afc-e40b-4fd7-a574-172f1cb58ee0)
+
+
+![image](https://github.com/user-attachments/assets/c7f0b73e-ed2d-4e98-b0b4-983c213e1675)
